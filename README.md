@@ -1,2 +1,2 @@
 # algorithm-library
-算法库
+前端算法库

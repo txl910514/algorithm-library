@@ -35,12 +35,6 @@ export default [
       },
     ],
     plugins: [
-      replace({
-        preventAssignment: true,
-        values: {
-          __INJECT_THREE__: resolveThreeModule()
-        }
-      }),
       resolve(),
       commonjs(),
       eslint({
@@ -76,12 +70,6 @@ export default [
       { file: pkg.module, format: 'es' },
     ],
     plugins: [
-      replace({
-        preventAssignment: true,
-        values: {
-          __INJECT_THREE__: resolveThreeModule()
-        }
-      }),
     ],
   },
 ];

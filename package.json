@@ -1,11 +1,11 @@
 {
-  "name": "@donglian/wisdom_three_applet",
-  "version": "1.0.4",
-  "description": "#### Description 东联 uni-app 小程序  3d仓库",
-  "main": "dist/wisdom_applet.cjs.js",
-  "module": "dist/wisdom_applet.esm.js",
-  "browser": "dist/wisdom_applet.umd.js",
-  "browserMin": "dist/wisdom_applet.min.js",
+  "name": "@donglian/algorithm_library",
+  "version": "1.0.0",
+  "description": "#### Description 东联 前端基础算法库",
+  "main": "dist/algorithm_library.cjs.js",
+  "module": "dist/algorithm_library.esm.js",
+  "browser": "dist/algorithm_library.umd.js",
+  "browserMin": "dist/algorithm_library.min.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -30,12 +30,11 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-typescript2": "^0.27.1",
-    "rollup-plugin-uglify": "^6.0.4",
-    "three": "^0.133.1"
+    "rollup-plugin-uglify": "^6.0.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/bailin_txl/wisdom_three_applet.git"
+    "url": "https://gitee.com/bailin_txl/algorithm-library.git"
   },
   "author": "",
   "license": "ISC",
