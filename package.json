@@ -1,0 +1,43 @@
+{
+  "name": "@donglian/wisdom_three_applet",
+  "version": "1.0.4",
+  "description": "#### Description 东联 uni-app 小程序  3d仓库",
+  "main": "dist/wisdom_applet.cjs.js",
+  "module": "dist/wisdom_applet.esm.js",
+  "browser": "dist/wisdom_applet.umd.js",
+  "browserMin": "dist/wisdom_applet.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "pretest": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-replace": "^3.0.1",
+    "@types/jest": "^26.0.8",
+    "@typescript-eslint/parser": "^3.8.0",
+    "abab": "^2.0.3",
+    "eslint-config-mdcs": "^5.0.0",
+    "eslint-plugin-html": "^6.2.0",
+    "jest": "^26.2.2",
+    "replace-in-file": "^6.3.2",
+    "rollup": "^2.23.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "three": "^0.133.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/bailin_txl/wisdom_three_applet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
