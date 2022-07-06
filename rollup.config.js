@@ -6,7 +6,7 @@ import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 // import replacement from "rollup-plugin-module-replacement";
 // import searchAndReplace from 'rollup-plugin-search-and-replace';
-import replace from '@rollup/plugin-replace';
+// import replace from '@rollup/plugin-replace';
 const fs = require('fs')
 const path = require('path')
 
@@ -22,7 +22,7 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        name: 'wisdom_applet',
+        name: 'algorithm_library',
         file: pkg.browser,
         format: 'umd',
         plugins: [uglify()],

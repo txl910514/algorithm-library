@@ -1,6 +1,6 @@
 {
   "name": "@donglian/algorithm_library",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "#### Description 东联 前端基础算法库",
   "main": "dist/algorithm_library.cjs.js",
   "module": "dist/algorithm_library.esm.js",

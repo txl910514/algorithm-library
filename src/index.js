@@ -1,4 +1,6 @@
 import Stack from "./Stack";
-export default {
-    Stack
+import Queue from "./Queue";
+export {
+    Stack,
+    Queue
 }
