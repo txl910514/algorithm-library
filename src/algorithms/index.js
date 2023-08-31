@@ -1,6 +1,9 @@
 // 击鼓传花算法
 import { Queue } from "../dataStructures/Queue";
 import Deque from "../dataStructures/Deque";
+import Stack from '../dataStructures/Stack'
+import {hanoiStack, hanoi} from './hanoi'
+
 export const hotPotato = (elementsList, num) => {
     const queue = new Queue();
     const elimitatedList = [];
@@ -40,3 +43,79 @@ export const palindromeChecker = (aString) => {
     }
     return isEqual;
 }
+
+// 十进制转二进制 
+
+
+export function decimalToBinary(decNumber) {
+  const remStack = new Stack();
+  let number = decNumber;
+  let rem;
+  let binaryString = '';
+
+  while (number > 0) {
+    rem = Math.floor(number % 2);
+    remStack.push(rem);
+    number = Math.floor(number / 2);
+  }
+
+  while (!remStack.isEmpty()) {
+    binaryString += remStack.pop().toString();
+  }
+
+  return binaryString;
+}
+
+
+//  进制转换算法
+
+export function baseConverter(decNumber, base) {
+  const remStack = new Stack();
+  const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let number = decNumber;
+  let rem;
+  let baseString = '';
+
+  if (!(base >= 2 && base <= 36)) {
+    return '';
+  }
+
+  while (number > 0) {
+    rem = Math.floor(number % base);
+    remStack.push(rem);
+    number = Math.floor(number / base);
+  }
+
+  while (!remStack.isEmpty()) {
+    baseString += digits[remStack.pop()];
+  }
+
+  return baseString;
+}
+
+// 平衡圆括号算法
+export function parenthesesChecker(symbols) {
+    const stack = new Stack();
+    const opens = '([{';
+    const closers = ')]}';
+    let balanced = true;
+    let index = 0;
+    let symbol;
+    let top;
+  
+    while (index < symbols.length && balanced) {
+      symbol = symbols[index];
+      if (opens.indexOf(symbol) >= 0) {
+        stack.push(symbol);
+      } else if (stack.isEmpty()) {
+        balanced = false;
+      } else {
+        top = stack.pop();
+        if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
+          balanced = false;
+        }
+      }
+      index++;
+    }
+    return balanced && stack.isEmpty();
+  }
