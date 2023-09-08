@@ -36,6 +36,13 @@ export function hanoiStack(plates) {
 
   return towerOfHanoi(plates, source, helper, dest, 'source', 'helper', 'dest');
 }
+/** 
+ * @plates {圆盘数：number} plates 
+ * @source {起始柱子 a：string} source 
+ * @helper {辅助柱子 b：string} helper 
+ * @dest {目标柱子 c：string} dest 
+ * @moves {移动步骤集：Array，数组的长度就是移动的次数} moves 
+ */
 
 export function hanoi(plates, source, helper, dest, moves = []) {
   if (plates <= 0) {
