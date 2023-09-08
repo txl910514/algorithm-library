@@ -6,6 +6,8 @@ class Deque extends Queue {
     constructor() {
         super()
     }
+
+    // 前端添加新的元素
     addFront (element) {
         const QueueMapObj = QueueMap.get(this);
         if (this.isEmpty()) {
@@ -21,12 +23,15 @@ class Deque extends Queue {
             QueueMapObj.items[0] = element;
           }
     }
+    // 后端添加新元素
     addBack (element) {
         super.enqueue(element);
     }
+    // 前端移除元素
     removeFront () {
         return super.dequeue();
     }
+    // 后端移除元素
     removeBack() {
         if (this.isEmpty()) {
             return undefined;
@@ -37,9 +42,11 @@ class Deque extends Queue {
           delete QueueMapObj.items[QueueMapObj.count];
           return result;
     }
+    // 返回前端元素
     peekFront () {
       return  super.peek();
     }
+    // 返回后端元素
     peekBack () {
         if (this.isEmpty()) {
             return undefined;
@@ -47,15 +54,19 @@ class Deque extends Queue {
         const QueueMapObj = QueueMap.get(this);
         return QueueMapObj.items[QueueMapObj.count - 1] 
     }
+    // 返回队列长度
     size () {
         return super.size();
     }
+    // 清除队列
     clear () {
         super.clear();
     }
+    // 判断队列是否为空
     isEmpty () {
        return super.isEmpty(); 
     }
+    // 字符串化
     toString () {
         return super.toString();
     }

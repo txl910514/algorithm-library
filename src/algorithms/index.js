@@ -4,6 +4,7 @@ import Deque from "../dataStructures/Deque";
 import Stack from '../dataStructures/Stack'
 import {hanoiStack, hanoi} from './hanoi'
 
+// 击鼓传花
 export const hotPotato = (elementsList, num) => {
     const queue = new Queue();
     const elimitatedList = [];
