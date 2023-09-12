@@ -22,6 +22,7 @@ export default class HashTable {
     }
     return hash % 37;
   }
+  // 散列函数
   /* djb2HashCode(key) {
     const tableKey = this.toStrFn(key);
     let hash = 5381;
