@@ -1,16 +1,14 @@
 /* 
-* 双向映射
+* 逆映射
  */
 import Dictionary from './Dictionary'
-class BidirectionalMap {
+class InverseMap {
     constructor () {
-        this.fwdMap = new Dictionary() // 正向映射
         this.revMap = new Dictionary() // 逆向映射
     }
       // 向字典添加新元素
   set(key, value) {
     if (key != null && value != null) {
-      this.fwdMap.set(key, value)
       this.revMap.set(value, key)
       return true;
     }
@@ -18,16 +16,15 @@ class BidirectionalMap {
   }
   //查找特定键值的数值
   get(key) {
-    return  this.fwdMap.get(key) || this.revMap.get(key)
+    return  this.revMap.get(key)
   }
     // 判断字典中是否有此键值
   hasKey(key) {
-    return !!(this.fwdMap.get(key) || this.revMap.get(key))
+    return !!this.revMap.get(key)
   }
   // 移除字典值
   remove(key) {
     if (this.hasKey(key)) {
-    this.fwdMap.remove(key)
     this.revMap.remove(key)
       return true;
     }
@@ -35,15 +32,15 @@ class BidirectionalMap {
   }
   // 以数组返回数据值
   values() {
-    return this.fwdMap.values()
+    return this.revMap.keys()
   }
   // 以数组返回键值
   keys() {
-    return this.fwdMap.keys()
+    return this.revMap.values()
   }
   // 将字典中的所有【键-值】返回
   keyValues() {
-    return this.fwdMap.keyValues()
+    return this.revMap.keyValues()
   }
   // 迭代字典中的所有键值对
   forEach(callbackFn) {
@@ -61,11 +58,10 @@ class BidirectionalMap {
   }
   // 字典的大小
   size() {
-    return this.fwdMap.size();
+    return this.revMap.size();
   }
   // 清除字典
   clear() {
-    this.fwdMap = new Dictionary() // 正向映射
     this.revMap = new Dictionary() // 逆向映射
   }
   // 字符串化
@@ -82,6 +78,4 @@ class BidirectionalMap {
   }
 }
 
-export default BidirectionalMap
-
-// https://juejin.cn/post/6976797991277428750
+export default InverseMap
