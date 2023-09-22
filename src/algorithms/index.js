@@ -151,8 +151,10 @@ inputSet 表示输入集合，可以是任意可迭代类型的集合。
 需要注意的是，这个示例代码假设输入集合和映射关系都是完全定义的，且不为空。在实际使用中，你可能需要根据具体情况进行适当的错误处理和参数验证。
 */
 export function isInjective(mapping, inputSet) {
-  const outputSet = new Set(Object.values(mapping));
-
+  // const outputSet = new Set(Object.values(mapping));
+  if (!isMapping(mapping, inputSet)) {
+      return false
+  }
   // 对于输入集合中的每个元素，检查是否至多有一个对应的输出元素
   for (const x of inputSet) {
     const count = Object.values(mapping).filter((y) => y === mapping[x]).length;
@@ -180,6 +182,9 @@ outputSet 表示输出集合，同样可以是任意可迭代类型的集合。
 */
 export function isSurjective(mapping, inputSet, outputSet) {
   // 对于输出集合中的每个元素，检查是否至少有一个对应的输入元素
+  if (!isMapping(mapping, inputSet)) {
+    return false
+  }
   for (const y of outputSet) {
     let found = false;
     for (const x of inputSet) {
@@ -192,6 +197,11 @@ export function isSurjective(mapping, inputSet, outputSet) {
       return false;
     }
   }
+  // for (const y1 of outputSet) {
+  //   if (!Object.keys(mapping).find(item => item === y1)) {
+  //     return false
+  //   }
+  // }
   return true;
 }
 // 判断映射关系是否为双射
@@ -249,4 +259,33 @@ export function composeMappings(mappings, inputSet) {
   }
 
   return currentSet;
+}
+
+// 判断是否为映射
+export function isMapping (mappings, inputSet) {
+  for (const x of inputSet) {
+    if (!Object.keys(mappings).find(mapping => mapping === x)) {
+      return false
+    }
+    if (Object.keys(mappings).filter(mapping => mapping === x).length > 1) {
+      return false
+    }
+  }
+  return true
+}
+
+// 获取逆映射
+
+export function getInverseMapping(mappings, inputSet) {
+  const newMapping = {}
+  if (!isMapping(mappings, inputSet)) {
+    return newMapping
+  }
+  if (!isInjective(mappings, inputSet)) {
+    return newMapping
+  }
+  for (var x in mappings) {
+    newMapping[mappings[x]] = x
+  }
+  return newMapping
 }
