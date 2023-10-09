@@ -1,5 +1,5 @@
 /* 
-* 字典
+* 多重字典
  */
 import { defaultToString } from '../util';
 import { ValuePair } from './models/value-pair';
@@ -18,8 +18,8 @@ export default class MultiDictionary {
         linkedListKey.push(value)
       } else {
         const linkedList = new LinkedList()
-        this.table.put(key, linkedList)
         linkedList.push(value)
+        this.table.put(key, linkedList)
       }
       return true;
     }
