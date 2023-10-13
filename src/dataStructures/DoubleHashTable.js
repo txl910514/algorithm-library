@@ -34,15 +34,6 @@ class DoubleHashTable  extends HashTable {
         }
         return hashKey;
     }
-    // 向散列表增加一个新的项
-    put(key, value) {
-        if (key != null && value != null) {
-        const position = this.hashCode(key);
-        this.table[position] = new ValuePair(key, value);
-        return true;
-        }
-        return false;
-    }
     findHashCode (key) {
         let hashKey = this.loseloseHashCode(key)
         const hashKeys = super.keys()

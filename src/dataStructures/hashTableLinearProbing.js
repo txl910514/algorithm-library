@@ -14,14 +14,14 @@ export default class HashTableLinearProbing {
   // 散列函数
   loseloseHashCode(key) {
     if (typeof key === 'number') {
-      return key % this.barrel;
+      return key;
     }
     const tableKey = this.toStrFn(key);
     let hash = 0;
     for (let i = 0; i < tableKey.length; i++) {
       hash += tableKey.charCodeAt(i);
     }
-    return hash % 37;
+    return hash % this.barrel;
   }
   // 散列函数
   hashCode(key) {
@@ -112,9 +112,10 @@ export default class HashTableLinearProbing {
   getTable() {
     return this.table;
   }
-    // 负载因子
+    // 负载因子 散列个数/桶的长度
     getLoadFactor () {
-      return this.keys().length / this.barrel
+      return 0
+      // return this.keys().length / this.barrel
     }
     keys () {
       return this.getTable().keys()

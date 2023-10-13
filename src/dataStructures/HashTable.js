@@ -11,10 +11,23 @@ export default class HashTable {
     this.table = {};
     this.barrel = 37
   }
+  // 扩充桶 添加元素之前做判断
+  expansionBucket () {
+            const newTable = {}
+            const hashkeys = this.keys()
+            this.barrel *= 2
+            hashkeys.forEach(item => {
+            this.table[item] = 1
+            this.#putFunc(this.table[item].key, this.table[item].value, newTable)
+            })
+  }
+  #putFunc (key,value ,table) {
+    
+  }
   // 散列函数
   loseloseHashCode(key) {
     if (typeof key === 'number') {
-      return key % this.barrel;
+      return key;
     }
     const tableKey = this.toStrFn(key);
     let hash = 0;
@@ -38,6 +51,10 @@ export default class HashTable {
   }
     // 向散列表增加一个新的项
   put(key, value) {
+    // 负载因子大于0.75 桶长度扩展两倍
+    // if (this.getLoadFactor() > 0.75) {
+    //   this.expansionBucket()
+    // }
     if (key != null && value != null) {
       const position = this.hashCode(key);
       this.table[position] = new ValuePair(key, value);
@@ -76,9 +93,10 @@ export default class HashTable {
   clear() {
     this.table = {};
   }
-  // 负载因子
+  // 负载因子 散列个数/桶的长度
   getLoadFactor () {
-    return this.keys().length / this.barrel
+    return 0
+    // return this.keys().length / this.barrel
   }
   keys () {
     return this.getTable().keys()

@@ -14,7 +14,7 @@ export default class HashTableLinearProbingLazy {
   // 散列函数
   loseloseHashCode(key) {
     if (typeof key === 'number') {
-      return key % this.barrel;
+      return key;
     }
     const tableKey = this.toStrFn(key);
     let hash = 0;
@@ -120,9 +120,10 @@ export default class HashTableLinearProbingLazy {
   getTable() {
     return this.table;
   }
-    // 负载因子
+    // 负载因子 散列个数/桶的长度
     getLoadFactor () {
-      return this.keys().length / this.barrel
+      return 0
+      // return this.keys().length / this.barrel
     }
     keys () {
       return this.getTable().keys()

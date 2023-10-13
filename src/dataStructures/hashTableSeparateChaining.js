@@ -94,9 +94,10 @@ export default class HashTableSeparateChaining {
   getTable() {
     return this.table;
   }
-    // 负载因子
+    // 负载因子 散列个数/桶的长度
     getLoadFactor () {
-      return this.keys().length / this.barrel
+      return 0
+      // return this.keys().length / this.barrel
     }
     keys () {
       return this.getTable().keys()
