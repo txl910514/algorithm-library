@@ -6,7 +6,7 @@ class DoubleHashTable  extends HashTable {
     }
     loseloseHashCode(key) {
         if (typeof key === 'number') {
-          return key % 37;
+          return key;
         }
         const tableKey = super.toStrFn(key);
         let hash = 0;
@@ -19,11 +19,11 @@ class DoubleHashTable  extends HashTable {
        return (key +1) % (total-2)
     }
     loseloseHashCode2 (key,j) {
-        return ((loseloseHashCode(key) + j* loseloseHashCode1(key))) % total
+        return ((this.loseloseHashCode(key) + j* this.loseloseHashCode1(key))) % total
     }
     hashCode(key) {
         let hashKey = this.loseloseHashCode(key)
-        const hashKeys = this.keys()
+        const hashKeys = super.keys()
         if (hashKeys.indexOf(hashKey) > -1) {
             let cTNum = 0;
             while (hashKeys.indexOf(hashKey) > -1) {
@@ -34,9 +34,45 @@ class DoubleHashTable  extends HashTable {
         }
         return hashKey;
     }
-    keys () {
-        return super.getTable().keys()
+    // 向散列表增加一个新的项
+    put(key, value) {
+        if (key != null && value != null) {
+        const position = this.hashCode(key);
+        this.table[position] = new ValuePair(key, value);
+        return true;
+        }
+        return false;
+    }
+    findHashCode (key) {
+        let hashKey = this.loseloseHashCode(key)
+        const hashKeys = super.keys()
+        if (hashKeys.indexOf(hashKey) === -1) {
+            let cTNum = 0;
+            while (hashKeys.indexOf(hashKey) === -1 && cTNum < hashKeys.length) {
+                ++ cTNum
+                hashKey = loseloseHashCode2(item, cTNum)
+            }
+            
+        }
+        return hashKey;
+    }
+        //根据键值检索值
+    get(key) {
+        const valuePair = this.table[this.findHashCode(key)];
+        return valuePair == null ? undefined : valuePair.value;
+    }
+        // 根据键值从散列表移除值
+    remove(key) {
+        const hash = this.findHashCode(key);
+        const valuePair = this.table[hash];
+        if (valuePair != null) {
+        delete this.table[hash];
+        return true;
+        }
+        return false;
     }
 }
 
 export default DoubleHashTable
+
+// https://www.cnblogs.com/organic/p/6283476.html

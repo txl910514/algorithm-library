@@ -9,11 +9,12 @@ export default class HashTableLinearProbingLazy {
   constructor(toStrFn = defaultToString) {
     this.toStrFn = toStrFn;
     this.table = {};
+    this.barrel = 37
   }
   // 散列函数
   loseloseHashCode(key) {
     if (typeof key === 'number') {
-      return key;
+      return key % this.barrel;
     }
     const tableKey = this.toStrFn(key);
     let hash = 0;
@@ -119,6 +120,13 @@ export default class HashTableLinearProbingLazy {
   getTable() {
     return this.table;
   }
+    // 负载因子
+    getLoadFactor () {
+      return this.keys().length / this.barrel
+    }
+    keys () {
+      return this.getTable().keys()
+    }
   // 字符串化
   toString() {
     if (this.isEmpty()) {

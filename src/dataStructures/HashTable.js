@@ -9,18 +9,19 @@ export default class HashTable {
   constructor(toStrFn = defaultToString) {
     this.toStrFn = toStrFn;
     this.table = {};
+    this.barrel = 37
   }
   // 散列函数
   loseloseHashCode(key) {
     if (typeof key === 'number') {
-      return key;
+      return key % this.barrel;
     }
     const tableKey = this.toStrFn(key);
     let hash = 0;
     for (let i = 0; i < tableKey.length; i++) {
       hash += tableKey.charCodeAt(i);
     }
-    return hash % 37;
+    return hash % this.barrel;
   }
   // 散列函数-社区实现
   /* djb2HashCode(key) {
@@ -74,6 +75,13 @@ export default class HashTable {
   // 清除散列表
   clear() {
     this.table = {};
+  }
+  // 负载因子
+  getLoadFactor () {
+    return this.keys().length / this.barrel
+  }
+  keys () {
+    return this.getTable().keys()
   }
   // 字符串化
   toString() {
