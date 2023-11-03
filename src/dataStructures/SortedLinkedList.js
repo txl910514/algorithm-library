@@ -1,5 +1,5 @@
 /* 
-* 循环链表
+* 有序链表
 */
 import { Compare, defaultCompare,defaultEquals } from '../util';
 import LinkedList from './linkedList';

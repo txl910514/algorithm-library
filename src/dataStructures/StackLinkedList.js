@@ -1,3 +1,6 @@
+/**
+ * 栈链表
+*/
 import DoublyLinkedList from './DoublyLinkedList'
 class StackLinkedList {
     constructor() {

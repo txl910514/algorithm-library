@@ -1,3 +1,6 @@
+/**
+ * 双散列法
+*/
 import HashTable from "./HashTable";
 
 class DoubleHashTable  extends HashTable {

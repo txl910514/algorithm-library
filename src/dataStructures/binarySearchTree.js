@@ -1,3 +1,4 @@
+// 二叉搜索树
 import { Compare, defaultCompare } from '../util';
 import { Node } from './models/node';
 
