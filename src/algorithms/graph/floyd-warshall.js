@@ -1,3 +1,6 @@
+/**
+ * 最短路径算法 Floyd-Warshall算法
+ */
 export const floydWarshall = graph => {
   const dist = [];
   const { length } = graph;

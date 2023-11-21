@@ -1,3 +1,7 @@
+/**
+ * 广度优先遍历
+*/
+
 import Queue from '../../data-structures/Queue';
 
 const Colors = {

@@ -1,4 +1,7 @@
 const INF = Number.MAX_SAFE_INTEGER;
+/**
+ * 最小生成树-kruskal算法
+*/
 const find = (i, parent) => {
   while (parent[i]) {
     i = parent[i]; // eslint-disable-line prefer-destructuring

@@ -1,5 +1,7 @@
 // import Graph from '../../data-structures/graph';
-
+/**
+ * 深度优先遍历
+ */
 const Colors = {
   WHITE: 0,
   GREY: 1,

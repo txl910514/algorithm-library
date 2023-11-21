@@ -1,3 +1,6 @@
+/**
+ * 最短路径算法-Dijkstra算法
+*/
 const INF = Number.MAX_SAFE_INTEGER;
 const minDistance = (dist, visited) => {
   let min = INF;

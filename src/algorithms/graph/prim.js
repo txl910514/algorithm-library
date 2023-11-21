@@ -1,3 +1,6 @@
+/**
+ * 最小生成树-Prim算法
+ */
 const INF = Number.MAX_SAFE_INTEGER;
 const minKey = (graph, key, visited) => {
   // Initialize min value
