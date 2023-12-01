@@ -1,3 +1,4 @@
+// 快速排序
 import { Compare, defaultCompare, swap } from '../../util';
 
 function partition(array, left, right, compareFn) {

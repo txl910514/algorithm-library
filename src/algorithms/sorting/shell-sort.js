@@ -1,3 +1,4 @@
+// 希尔排序
 import { Compare, defaultCompare } from '../../util';
 
 export function shellSort(array, compareFn = defaultCompare) {

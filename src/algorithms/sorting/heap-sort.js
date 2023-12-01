@@ -1,3 +1,4 @@
+// 堆排序
 import { defaultCompare, swap } from '../../util';
 
 function heapify(array, index, heapSize, compareFn) {

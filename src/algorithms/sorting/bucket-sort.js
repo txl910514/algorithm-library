@@ -1,3 +1,4 @@
+// 桶排序
 import { insertionSort } from './insertion-sort';
 
 function createBuckets(array, bucketSize) {

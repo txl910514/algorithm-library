@@ -1,3 +1,4 @@
+// 计数排序
 import { findMaxValue } from '../search/min-max-search';
 
 export function countingSort(array) {

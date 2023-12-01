@@ -1,3 +1,4 @@
+// 归并排序
 import { Compare, defaultCompare } from '../../util';
 
 function merge(left, right, compareFn) {

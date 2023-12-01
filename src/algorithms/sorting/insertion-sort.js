@@ -1,3 +1,4 @@
+// 插入排序
 import { Compare, defaultCompare } from '../../util';
 
 export const insertionSort = (array, compareFn = defaultCompare) => {
